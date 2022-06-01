@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.AdmmenuController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="806.0">
+         <image>
+            <Image url="@../../src/img/administrator.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="inquireCK" layoutX="393.0" layoutY="284.0" mnemonicParsing="false" onAction="#inquireClick" opacity="0.0" prefHeight="33.0" prefWidth="86.0" style="-fx-background-color: #475989; -fx-background-radius: 50;" text="查 询" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="idCK" layoutX="220.0" layoutY="238.0" prefHeight="33.0" prefWidth="253.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button fx:id="checkCK" layoutY="331.0" mnemonicParsing="false" onAction="#checkClick" opacity="0.0" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: white;" text="查 看 资 料" textFill="#475989">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="passwordCK" layoutY="388.0" mnemonicParsing="false" onAction="#passwordClick" opacity="0.0" prefHeight="33.0" prefWidth="164.0" style="-fx-background-color: white;" text="修 改 密 码" textFill="#475989">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="outCK" layoutY="444.0" mnemonicParsing="false" onAction="#outClick" opacity="0.0" prefHeight="33.0" prefWidth="164.0" style="-fx-background-color: white;" text="退 出 登 录" textFill="#475989">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="Aname" layoutX="107.0" layoutY="201.0" prefHeight="40.0" prefWidth="76.0" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="questionCK" layoutX="561.0" layoutY="144.0" mnemonicParsing="false" onAction="#questionCK" opacity="0.0" prefHeight="69.0" prefWidth="205.0" style="-fx-background-color: #475989; -fx-background-radius: 50;" text="修 改 题 目" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="testCK" layoutX="561.0" layoutY="250.0" mnemonicParsing="false" onAction="#testClick" prefHeight="69.0" prefWidth="205.0" style="-fx-background-color: white; -fx-border-color: #475989; -fx-border-width: 4; -fx-border-radius: 50;" text="" textFill="#475989">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="gradeCK" layoutX="561.0" layoutY="354.0" mnemonicParsing="false" onAction="#gradeClick" opacity="0.0" prefHeight="69.0" prefWidth="205.0" style="-fx-background-color: #475989; -fx-background-radius: 50;" text="查 看 成 绩" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</Pane>

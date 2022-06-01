@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="stuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student.StudentMainController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="800.0">
+         <image>
+            <Image url="@../img/学生界面.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="Sname" alignment="BOTTOM_CENTER" layoutX="80.0" layoutY="144.0" prefHeight="35.0" prefWidth="99.0" textFill="WHITE" />
+      <Label fx:id="grade" layoutX="640.0" layoutY="175.0" prefHeight="43.0" prefWidth="71.0" textFill="#475989">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="GetInfor" layoutY="330.0" mnemonicParsing="false" onAction="#GetInfor_Click" opacity="0.0" prefHeight="29.0" prefWidth="148.0" text="Button">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="ChangePass" layoutY="387.0" mnemonicParsing="false" onAction="#ChangePass_Click" opacity="0.0" prefHeight="29.0" prefWidth="148.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit" layoutY="447.0" mnemonicParsing="false" onAction="#exit_Click" opacity="0.0" prefHeight="29.0" prefWidth="148.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="exercise" layoutX="266.0" layoutY="171.0" mnemonicParsing="false" onAction="#exercise_Click" opacity="0.0" prefHeight="52.0" prefWidth="154.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="preTest" layoutX="266.0" layoutY="307.0" mnemonicParsing="false" onAction="#preTest_Click" opacity="0.0" prefHeight="63.0" prefWidth="154.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="Test" layoutX="555.0" layoutY="291.0" mnemonicParsing="false" onAction="#Test_Click" opacity="0.0" prefHeight="95.0" prefWidth="183.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="view" fitHeight="123.0" fitWidth="140.0" layoutX="26.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.AdmmessageController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@../img/Admmessage.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="251.0" layoutY="148.0" prefHeight="239.0" prefWidth="465.0">
+         <children>
+            <TextField fx:id="Aname" prefHeight="79.0" prefWidth="465.0" style="-fx-background-color: #C6D0EB;" />
+            <TextField fx:id="Asex" prefHeight="79.0" prefWidth="465.0" style="-fx-background-color: white;" />
+            <TextField fx:id="Aphone" prefHeight="79.0" prefWidth="465.0" style="-fx-background-color: #C6D0EB;" />
+         </children>
+      </VBox>
+      <Label fx:id="Aid" layoutX="321.0" layoutY="93.0" prefHeight="50.0" prefWidth="163.0" />
+      <Button fx:id="CmessageCK" layoutX="321.0" layoutY="450.0" mnemonicParsing="false" onAction="#CmessageClick" opacity="0.0" prefHeight="65.0" prefWidth="204.0" text="修改信息">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="returnCK" layoutX="120.0" layoutY="450.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="65.0" prefWidth="145.0" text="返回">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="checkCK" layoutX="570.0" layoutY="450.0" mnemonicParsing="false" onAction="#checkClick" opacity="0.0" prefHeight="65.0" prefWidth="152.0" text="提交">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</Pane>

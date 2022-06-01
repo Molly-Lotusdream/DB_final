@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.StumessageController">
+   <children>
+      <ImageView fitHeight="609.0" fitWidth="808.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Stumessage.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="changeCK" layoutX="34.0" layoutY="439.0" mnemonicParsing="false" onAction="#changeClick" opacity="0.0" prefHeight="59.0" prefWidth="203.0" text="修改信息">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="deleteCK" layoutX="408.0" layoutY="436.0" mnemonicParsing="false" onAction="#deleteClick" opacity="0.0" prefHeight="65.0" prefWidth="221.0" text="删除该学生信息">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="Sid" layoutX="292.0" layoutY="42.0" prefHeight="48.0" prefWidth="160.0" />
+      <TextField fx:id="Sname" layoutX="256.0" layoutY="97.0" prefHeight="59.0" prefWidth="458.0" style="-fx-background-color: #C6D0EB;" />
+      <Button fx:id="subCK" layoutX="240.0" layoutY="436.0" mnemonicParsing="false" onAction="#subClick" opacity="0.0" prefHeight="59.0" prefWidth="153.0" text="提交修改">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="Ssex" layoutX="257.0" layoutY="155.0" prefHeight="72.0" prefWidth="458.0" style="-fx-background-color: white;" />
+      <TextField fx:id="Sschool" layoutX="257.0" layoutY="227.0" prefHeight="59.0" prefWidth="458.0" style="-fx-background-color: #C6D0EB;" />
+      <TextField fx:id="Sstate" layoutX="257.0" layoutY="283.0" prefHeight="65.0" prefWidth="458.0" style="-fx-background-color: white;" />
+      <TextField fx:id="Sphone" layoutX="254.0" layoutY="345.0" prefHeight="65.0" prefWidth="458.0" style="-fx-background-color: #C6D0EB;" />
+      <Button fx:id="retCK" layoutX="643.0" layoutY="433.0" mnemonicParsing="false" onAction="#retClick" opacity="0.0" prefHeight="65.0" prefWidth="120.0" text="删除该学生信息">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="Adname" layoutX="609.0" layoutY="-74.0" prefHeight="48.0" prefWidth="160.0" />
+      <Label fx:id="Aname" layoutX="501.0" layoutY="-50.0" text="管理员：" />
+   </children>
+</Pane>

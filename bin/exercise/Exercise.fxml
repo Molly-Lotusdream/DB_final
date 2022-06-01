@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="exercisePane" prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exercise.ExerciseController">
+   <children>
+      <ImageView fx:id="background" fitHeight="393.0" fitWidth="600.0">
+         <image>
+            <Image url="@../img/练习-选择.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Qselection" layoutX="27.0" layoutY="6.0" mnemonicParsing="false" onAction="#QclickS" opacity="0.0" prefHeight="47.0" prefWidth="81.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Qblanks" layoutX="228.0" layoutY="6.0" mnemonicParsing="false" onAction="#QclickB" opacity="0.0" prefHeight="47.0" prefWidth="81.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Qjudge" layoutX="332.0" layoutY="6.0" mnemonicParsing="false" onAction="#QclickJ" opacity="0.0" prefHeight="47.0" prefWidth="81.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Qselection_M" layoutX="123.0" layoutY="6.0" mnemonicParsing="false" onAction="#QclickS_M" opacity="0.0" prefHeight="47.0" prefWidth="81.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane fx:id="paneMain" layoutY="53.0" prefHeight="353.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="numbers" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="43.0" prefHeight="47.0" prefWidth="41.0" style="-fx-background-color: #475989;" text="1" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="qusetion" alignment="TOP_LEFT" layoutX="87.0" layoutY="65.0" prefHeight="67.0" prefWidth="443.0" style="-fx-background-color: white;" text="题干" textFill="#475989" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="Next_q" layoutX="432.0" layoutY="228.0" mnemonicParsing="false" onAction="#NextClick" opacity="0.0" prefHeight="36.0" prefWidth="132.0" text="next_q">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="Last_q" layoutX="432.0" layoutY="264.0" mnemonicParsing="false" onAction="#Last_Click" opacity="0.0" prefHeight="36.0" prefWidth="132.0" text="last_q">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="result" layoutX="491.0" layoutY="129.0" prefHeight="36.0" prefWidth="47.0" text="✓" textFill="#475989" visible="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="answer" layoutX="110.0" layoutY="241.0" prefHeight="36.0" prefWidth="302.0" text="参考答案：" textFill="#475989" underline="true" visible="false" />
+            <Label fx:id="label_A" layoutX="87.0" layoutY="152.0" text="输入答案：" textFill="#475989" visible="false" />
+            <Button fx:id="saved" layoutX="477.0" layoutY="183.0" mnemonicParsing="false" onAction="#SaveClick" prefHeight="36.0" prefWidth="75.0" style="-fx-background-color: #475989;" text="保存" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="writeAns" layoutX="170.0" layoutY="146.0" prefHeight="36.0" prefWidth="271.0" visible="false" />
+            <RadioButton fx:id="selectTrue" layoutX="108.0" layoutY="134.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="192.0" style="-fx-background-color: white;" text="正确" textFill="#475989" visible="false">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="selectFalse" layoutX="108.0" layoutY="170.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="192.0" style="-fx-background-color: white;" text="错误" textFill="#475989" toggleGroup="$group" visible="false" />
+            <RadioButton fx:id="selectA" layoutX="108.0" layoutY="134.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="160.0" style="-fx-background-color: white;" text="A" textFill="#475989">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="selectB" layoutX="300.0" layoutY="134.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" style="-fx-background-color: white;" text="B" textFill="#475989" toggleGroup="$group1" />
+            <RadioButton fx:id="selectC" layoutX="108.0" layoutY="170.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="160.0" style="-fx-background-color: white;" text="C" textFill="#475989" toggleGroup="$group1" />
+            <RadioButton fx:id="selectD" layoutX="300.0" layoutY="171.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="154.0" style="-fx-background-color: white;" text="D" textFill="#475989" toggleGroup="$group1" />
+            <CheckBox fx:id="MselectA" layoutX="108.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="A" visible="false" />
+            <CheckBox fx:id="MselectB" layoutX="300.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="B" visible="false" />
+            <CheckBox fx:id="MselectC" layoutX="108.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="C" visible="false" />
+            <CheckBox fx:id="MselectD" layoutX="300.0" layoutY="170.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="D" visible="false" />
+         </children>
+      </Pane>
+      <Button fx:id="back" layoutX="512.0" layoutY="12.0" mnemonicParsing="false" onAction="#QclickBack" opacity="0.0" prefHeight="36.0" prefWidth="68.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>

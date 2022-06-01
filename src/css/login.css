@@ -1,0 +1,41 @@
+#root {
+-fx-background: #C6D0EB;
+}
+#font {
+-fx-font-size: 16px;
+-fx-font-family: "华文中宋";
+-fx-font-weight:bold;
+-fx-fill: #ffffff;
+
+}
+#title {
+	-fx-font-size: 26px;
+-fx-font-family: "微软雅黑";
+-fx-font-weight:bold;
+-fx-fill: #ffffff;
+
+}
+.label {
+-fx-font-size: 16px;
+-fx-font-family: "华文中宋";
+-fx-font-weight:bold;
+-fx-fill: #ffffff;
+}
+.button {
+	-fx-background-radius:5px;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-background-padding: 10px;
+    -fx-text-fill: white;
+    -fx-font-family: "幼圆";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#6F83B8, #7BADEE);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0.0, 0, 1);
+}
+
+.button:hover {
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-background-color: linear-gradient(#7BADEE,#6F83B8);
+    -fx-font-family: "幼圆";
+}

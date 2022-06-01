@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.ChangeQController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@../img/ChangeQ.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="deleteCK" layoutX="703.0" layoutY="111.0" mnemonicParsing="false" onAction="#deleteClick" opacity="0.0" prefHeight="48.0" prefWidth="83.0" text="删除">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="addCK" layoutX="703.0" layoutY="217.0" mnemonicParsing="false" onAction="#addClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="添加">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="returnOK" layoutX="703.0" layoutY="310.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="返回">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <VBox layoutX="184.0" layoutY="39.0" prefHeight="436.0" prefWidth="496.0" spacing="15.0">
+         <children>
+            <TextField fx:id="qid" prefHeight="61.0" prefWidth="496.0" />
+            <TextField fx:id="qcontent" prefHeight="55.0" prefWidth="497.0" />
+            <TextField fx:id="QA" prefHeight="55.0" prefWidth="497.0" />
+            <TextField fx:id="QB" prefHeight="55.0" prefWidth="497.0" />
+            <TextField fx:id="QC" prefHeight="55.0" prefWidth="497.0" />
+            <TextField fx:id="QD" prefHeight="55.0" prefWidth="497.0" />
+            <TextField fx:id="answer" prefHeight="55.0" prefWidth="497.0" />
+         </children>
+      </VBox>
+      <Label fx:id="Aname" disable="true" layoutX="40.0" layoutY="-50.0" text="name" />
+   </children>
+</Pane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.AdmgradeController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="807.0" layoutX="-3.0" layoutY="-3.0">
+         <image>
+            <Image url="@../img/Admgrade.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="60.0" layoutY="89.0" prefHeight="416.0" prefWidth="681.0">
+         <content>
+            <TableView fx:id="gradeview" prefHeight="417.0" prefWidth="654.0">
+              <columns>
+                <TableColumn fx:id="sidcol" prefWidth="108.0" text="学生ID" />
+                <TableColumn fx:id="snamecol" minWidth="0.0" prefWidth="203.0" text="学生姓名" />
+                  <TableColumn fx:id="sschoolcol" minWidth="0.0" prefWidth="193.0" text="学生学校" />
+                  <TableColumn fx:id="sgradecol" minWidth="0.0" prefWidth="149.0" text="学生成绩" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button fx:id="returnCK" layoutX="665.0" layoutY="8.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="51.0" prefWidth="110.0" text="返回">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="sortCK" layoutX="281.0" layoutY="521.0" mnemonicParsing="false" onAction="#sortClick" opacity="0.0" prefHeight="51.0" prefWidth="240.0" text="按从高到低排序">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</Pane>

@@ -1,0 +1,46 @@
+#selectionCK {
+	-fx-font-size: 18px;
+	-fx-background-color:white;
+	-fx-background-radius:20px 20px 0px 0px;
+}
+
+#MchoiceCK {
+	-fx-font-size: 18px;
+	-fx-background-color:white;
+	-fx-background-radius:20px 20px 0px 0px;
+}
+
+#JudgeCK {
+	-fx-font-size: 18px;
+	-fx-background-color:white;
+	-fx-background-radius:20px 20px 0px 0px;
+}
+
+#BlankCK {
+	-fx-font-size: 18px;
+	-fx-background-color:white;
+	-fx-background-radius:20px 20px 0px 0px;
+}
+
+#selectionCK:focused {
+    -fx-background-color:#C6D0EB;
+
+}
+
+#MchoiceCK:focused {
+    -fx-background-color:#C6D0EB;
+
+}
+
+#JudgeCK:focused {
+    -fx-background-color:#C6D0EB;
+
+}
+
+#BlankCK:focused {
+    -fx-background-color:#C6D0EB;
+
+}
+
+
+

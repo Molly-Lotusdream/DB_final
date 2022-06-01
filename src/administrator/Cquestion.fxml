@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="administrator.CquestionController">
+   <children>
+      <ImageView fitHeight="606.0" fitWidth="811.0" layoutX="-6.0" layoutY="-5.0">
+         <image>
+            <Image url="@../img/Cquestion.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="returnCK" layoutX="667.0" layoutY="9.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="48.0" prefWidth="110.0" text="返回">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ScrollPane fx:id="pane1" layoutX="20.0" layoutY="97.0" prefHeight="403.0" prefWidth="744.0">
+         <content>
+            <TableView fx:id="selectQ" prefHeight="537.0" prefWidth="1309.0">
+              <columns>
+                <TableColumn fx:id="qid1" prefWidth="61.0" text="题号" />
+                <TableColumn fx:id="qcontent1" prefWidth="471.0" text="题目" />
+                  <TableColumn fx:id="qA" prefWidth="163.0" text="选项A" />
+                  <TableColumn fx:id="qB" minWidth="0.0" prefWidth="183.0" text="选项B" />
+                  <TableColumn fx:id="qC" minWidth="0.0" prefWidth="170.0" text="选项C" />
+                  <TableColumn fx:id="qD" prefWidth="150.0" text="选项D" />
+                  <TableColumn fx:id="qanswer1" minWidth="0.0" prefWidth="107.0" text="答案" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button fx:id="changeCK" layoutX="301.0" layoutY="520.0" mnemonicParsing="false" onAction="#changeClick" opacity="0.0" prefHeight="54.0" prefWidth="198.0" text="修改题目">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <HBox layoutX="35.0" layoutY="7.0" prefHeight="72.0" prefWidth="414.0" spacing="11.0">
+         <children>
+            <Button fx:id="selectionCK" mnemonicParsing="false" onAction="#selectionClick" prefHeight="59.0" prefWidth="127.0" text="单选题" textFill="#475989">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="MchoiceCK" mnemonicParsing="false" onAction="#MchoiceClick" prefHeight="59.0" prefWidth="127.0" text="多选题" textFill="#475989">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="JudgeCK" mnemonicParsing="false" onAction="#JudgeClick" prefHeight="59.0" prefWidth="127.0" text="判断题" textFill="#475989">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="BlankCK" mnemonicParsing="false" onAction="#BankClick" prefHeight="59.0" prefWidth="127.0" text="填空题" textFill="#475989">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="8.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="pane2" layoutX="30.0" layoutY="107.0" prefHeight="403.0" prefWidth="744.0" visible="false">
+         <content>
+            <TableView fx:id="otherQ" prefHeight="537.0" prefWidth="1370.0">
+               <columns>
+                  <TableColumn fx:id="qid2" prefWidth="61.0" text="题号" />
+                  <TableColumn fx:id="qcontent2" prefWidth="632.0" text="题目" />
+                  <TableColumn fx:id="qanswer2" minWidth="0.0" prefWidth="219.0" text="答案" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>

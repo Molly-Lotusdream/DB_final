@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="exercise.TestController">
+   <children>
+      <ImageView fitHeight="650.0" fitWidth="1000.0">
+         <image>
+            <Image url="@../img/test.jpg" />
+         </image>
+      </ImageView>
+      <VBox layoutX="31.0" layoutY="24.0" prefHeight="220.0" prefWidth="97.0">
+         <children>
+            <Button fx:id="No1" mnemonicParsing="false" onAction="#Click1" prefHeight="22.0" prefWidth="97.0" style="-fx-background-color: #475989;" text="第1题" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="No2" mnemonicParsing="false" onAction="#Click2" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第2题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No3" mnemonicParsing="false" onAction="#Click3" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #475989;" text="第3题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No4" mnemonicParsing="false" onAction="#Click4" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第4题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No5" mnemonicParsing="false" onAction="#Click5" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #475989;" text="第5题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No6" mnemonicParsing="false" onAction="#Click6" prefHeight="22.0" prefWidth="96.0" style="-fx-background-color: #475989;" text="第6题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No7" mnemonicParsing="false" onAction="#Click7" prefHeight="22.0" prefWidth="101.0" style="-fx-background-color: #475989;" text="第7题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No8" mnemonicParsing="false" onAction="#Click8" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第8题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No9" mnemonicParsing="false" onAction="#Click9" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第9题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No10" mnemonicParsing="false" onAction="#Click10" prefHeight="22.0" prefWidth="101.0" style="-fx-background-color: #475989;" text="第10题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="31.0" layoutY="261.0" prefHeight="110.0" prefWidth="97.0">
+         <children>
+            <Button fx:id="No11" mnemonicParsing="false" onAction="#Click11" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第11题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No12" mnemonicParsing="false" onAction="#Click12" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第12题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No13" mnemonicParsing="false" onAction="#Click13" prefHeight="22.0" prefWidth="101.0" style="-fx-background-color: #475989;" text="第13题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No14" mnemonicParsing="false" onAction="#Click14" prefHeight="22.0" prefWidth="102.0" style="-fx-background-color: #475989;" text="第14题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No15" mnemonicParsing="false" onAction="#Click15" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第15题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="31.0" layoutY="388.0" prefHeight="110.0" prefWidth="97.0">
+         <children>
+            <Button fx:id="No16" mnemonicParsing="false" onAction="#Click16" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第16题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No17" mnemonicParsing="false" onAction="#Click17" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第17题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No18" mnemonicParsing="false" onAction="#Click18" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第18题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No19" mnemonicParsing="false" onAction="#Click19" prefHeight="22.0" prefWidth="99.0" style="-fx-background-color: #475989;" text="第19题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No20" mnemonicParsing="false" onAction="#Click20" prefHeight="22.0" prefWidth="101.0" style="-fx-background-color: #475989;" text="第20题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="31.0" layoutY="516.0" prefHeight="110.0" prefWidth="97.0">
+         <children>
+            <Button fx:id="No21" mnemonicParsing="false" onAction="#Click21" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第21题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No22" mnemonicParsing="false" onAction="#Click22" prefHeight="22.0" prefWidth="97.0" style="-fx-background-color: #475989;" text="第22题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No23" mnemonicParsing="false" onAction="#Click23" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #475989;" text="第23题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No24" mnemonicParsing="false" onAction="#Click24" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第24题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="No25" mnemonicParsing="false" onAction="#Click25" prefHeight="22.0" prefWidth="98.0" style="-fx-background-color: #475989;" text="第25题" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Button fx:id="lastQusetion" layoutX="165.0" layoutY="6.0" mnemonicParsing="false" onAction="#lastQClick" opacity="0.0" prefHeight="43.0" prefWidth="168.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="nextQusetion" layoutX="339.0" layoutY="6.0" mnemonicParsing="false" onAction="#nextQClick" opacity="0.0" prefHeight="43.0" prefWidth="168.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    <Label fx:id="minute" layoutX="611.0" layoutY="10.0" prefHeight="32.0" prefWidth="80.0" text="30：" textFill="#475989">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <Label fx:id="second" layoutX="691.0" layoutY="10.0" prefHeight="32.0" prefWidth="80.0" text="00" textFill="#475989">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <Button fx:id="finishTest" layoutX="825.0" layoutY="6.0" mnemonicParsing="false" onAction="#FinishClick" opacity="0.0" prefHeight="43.0" prefWidth="168.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="saved" layoutX="216.0" layoutY="332.0" mnemonicParsing="false" onAction="#saveClick" opacity="0.0" prefHeight="36.0" prefWidth="80.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label fx:id="question" alignment="TOP_LEFT" layoutX="216.0" layoutY="105.0" prefHeight="81.0" prefWidth="497.0" text="题干：11111111111111111111111111111111111111111111" textFill="#475989" wrapText="true">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Pane fx:id="selectPane" layoutX="217.0" layoutY="189.0" prefHeight="104.0" prefWidth="579.0">
+         <children>
+            <RadioButton fx:id="selectA" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="A" textFill="#475989">
+               <toggleGroup>
+                  <ToggleGroup fx:id="select1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="selectB" layoutX="308.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="B" textFill="#475989" toggleGroup="$select1" />
+            <RadioButton fx:id="selectC" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="C" textFill="#475989" toggleGroup="$select1" />
+            <RadioButton fx:id="selectD" layoutX="308.0" layoutY="58.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="D" textFill="#475989" toggleGroup="$select1" />
+            <CheckBox fx:id="MselectA" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="A" textFill="#475989" visible="false" />
+            <CheckBox fx:id="MselectB" layoutX="308.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="B" textFill="#475989" visible="false" />
+            <CheckBox fx:id="MselectC" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="C" textFill="#475989" visible="false" />
+            <CheckBox fx:id="MselectD" layoutX="308.0" layoutY="58.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="D" textFill="#475989" visible="false" />
+         </children>
+      </Pane>
+      <Pane fx:id="judgePane" layoutX="218.0" layoutY="189.0" prefHeight="104.0" prefWidth="579.0" visible="false">
+         <children>
+            <RadioButton fx:id="selectTrue" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="正确" textFill="#475989">
+               <toggleGroup>
+                  <ToggleGroup fx:id="select2" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="selectFalse" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="199.0" text="错误" textFill="#475989" toggleGroup="$select2" />
+         </children>
+      </Pane>
+      <Pane fx:id="blanksPane" layoutX="218.0" layoutY="189.0" prefHeight="104.0" prefWidth="579.0" visible="false">
+         <children>
+            <Label fx:id="label_A" layoutY="34.0" prefHeight="36.0" prefWidth="90.0" text="输入答案：" textFill="#475989" />
+            <TextField fx:id="writeAns" layoutX="90.0" layoutY="31.0" prefHeight="43.0" prefWidth="367.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
