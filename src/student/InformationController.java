@@ -60,7 +60,7 @@ public class InformationController {
 		myDB2.closeMyConnection();
 
 		Stage stustage = new Stage();
-		StudentMain stumain = new StudentMain(stustage, Sname.getText(), ID.getText(), Ssex.getText());
+		StudentMain stumain = new StudentMain(stustage, Sname.getText(), ID.getText(), Ssex.getText(),false);
 		Scene adScene = new Scene(stumain);
 		stustage.setScene(adScene);
 		stustage.setTitle("学生主界面");
@@ -107,6 +107,7 @@ public class InformationController {
 		Sname.setDisable(true);
 		Ssex.setDisable(true);
 		Sphone.setDisable(true);
+		Sschool.setDisable(true);
 //		Sname.setEditable(false);
 //		Ssex.setEditable(false);
 //		Sschool.setEditable(false);

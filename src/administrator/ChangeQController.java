@@ -20,7 +20,7 @@ public class ChangeQController {
     private Stage oldStage = null;
     private String Adname = null;
     private String Aid = null;
-    private int p,t;
+    private int p,t,w,qqid;
     @FXML
     private TextField QA;
 
@@ -40,18 +40,19 @@ public class ChangeQController {
     private TextField answer;
 
     @FXML
-    private Button deleteCK;
-
-    @FXML
-    private Button addCK;
+    private Button checkCK;//
 
     @FXML
     private TextField qid;
 
     @FXML
     private Button returnOK;
+
     @FXML
     private Label Aname;
+
+    @FXML
+    private Label question;
     //数据库连接
     private String DBDriver = "com.mysql.cj.jdbc.Driver";
 	private String DBURL = "jdbc:mysql://localhost:3306/question answering system?serverTimezone=UTC&characterEncoding=utf-8";
@@ -62,70 +63,71 @@ public class ChangeQController {
 	private Statement stmt1;
 
     @FXML
-    void deleteClick(ActionEvent event) throws SQLException {//获取题号后去数据库删除相应的题目
-    	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("删除题目信息");
-		alert.setHeaderText("将删除所填题号题目的所有信息" + "\n" + "确定要删除吗？删除后信息将不可恢复");
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == ButtonType.OK) {
-			String sql;
-			if(p==1){
-				if(t==1){
-					sql = "delete  from sselection where q_id='" + qid.getText()+"'";
-				}else{
-					sql = "delete  from mchoices where q_id='" + qid.getText()+"'";
-				}
-			}else{
-				if(t==1){
-					sql = "delete  from judgment where q_id='" + qid.getText()+"'";
-				}else{
-					sql = "delete  from blanks where q_id='" + qid.getText()+"'";
-				}
-			}
-			stmt1 = conn1.createStatement();
-			stmt1.executeUpdate(sql);
-			stmt1.close();
-			myDB1.closeMyConnection();// 关闭连接
-		} else {
-			alert.close();
-		}
-    }
+    void checkClick(ActionEvent event) throws SQLException {//确认修改题目并提交至数据库
+    	String sql = null;
+    	if(w==1){//添加题目
+    		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    		alert.setTitle("添加题目信息");
+    		alert.setHeaderText("添加不同类型的题目时请看好注意事项" + "\n");
+    		Optional<ButtonType> result = alert.showAndWait();
+    		if (result.get() == ButtonType.OK) {
+    			if(p==1){
+    				if(t==1){
+    					sql = "insert into sselection values ("+qid.getText()+","+qcontent.getText()+","
+    							+QA.getText()+","+QB.getText()+","+QC.getText()+","+QD.getText()+","+
+    							answer.getText()+")";
+    				}else{
+    					sql = "insert into mchoices values ("+qid.getText()+","+qcontent.getText()+","
+    							+QA.getText()+","+QB.getText()+","+QC.getText()+","+QD.getText()+","+
+    							answer.getText()+")";
+    				}
+    			}else{
+    				if(t==1){
+    					sql = "insert into judgment values ("+qid.getText()+","+qcontent.getText()+","+
+    							answer.getText()+")";
+    				}else{
+    					sql = "insert into blanks values ("+qid.getText()+","+qcontent.getText()+","+
+    							answer.getText()+")";
+    				}
+    			}
 
-    @FXML
-    void addClick(ActionEvent event) throws SQLException {//获取相关题目信息去数据库添加
-    	Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("添加题目信息");
-		alert.setHeaderText("添加不同类型的题目时请看好注意事项" + "\n");
-		Optional<ButtonType> result = alert.showAndWait();
-		if (result.get() == ButtonType.OK) {
-			String sql;
-			if(p==1){
-				if(t==1){
-					sql = "insert into sselection values ("+qid.getText()+","+qcontent.getText()+","
-							+QA.getText()+","+QB.getText()+","+QC.getText()+","+QD.getText()+","+
-							answer.getText()+")";
-				}else{
-					sql = "insert into mchoices values ("+qid.getText()+","+qcontent.getText()+","
-							+QA.getText()+","+QB.getText()+","+QC.getText()+","+QD.getText()+","+
-							answer.getText()+")";
-				}
-			}else{
-				if(t==1){
-					sql = "insert into judgment values ("+qid.getText()+","+qcontent.getText()+","+
-							answer.getText()+")";
-				}else{
-					sql = "insert into blanks values ("+qid.getText()+","+qcontent.getText()+","+
-							answer.getText()+")";
-				}
-			}
-			stmt1 = conn1.createStatement();
-			stmt1.executeUpdate(sql);
-			stmt1.close();
-			myDB1.closeMyConnection();// 关闭连接
-		} else {
-			alert.close();
-		}
-    }
+    		} else {
+    			alert.close();
+    		}
+    	}else{//修改题目
+    		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    		alert.setTitle("修改题目信息");
+    		alert.setHeaderText("将修改你所填的题目信息" + "\n" + "确定要修改吗？修改后信息将不可恢复");
+    		Optional<ButtonType> result = alert.showAndWait();
+    		if (result.get() == ButtonType.OK) {
+                  if(p==1){
+                	  if(t==1){
+                		  sql="update sselection set q_content='"+qcontent.getText()+"',q_A='"
+                		+QA.getText()+"',q_B='"+QB.getText()+"',q_C='"+QC.getText()+"',q_D='"+QD.getText()+"',q_answer='"
+                		+answer.getText()+"' where q_id='"+qid.getText()+"'";
+                	  }else{
+                		  sql="update mchoices set q_content='"+qcontent.getText()+"',q_A='"
+                          		+QA.getText()+"',q_B='"+QB.getText()+"',q_C='"+QC.getText()+"',q_D='"+QD.getText()+"',q_answer='"
+                          		+answer.getText()+"' where q_id='"+qid.getText()+"'";
+                	  }
+                  }else{
+                	  if(t==1){
+                		  sql="update judgment set q_content='"+qcontent.getText()+"',q_answer='"
+                		+answer.getText()+"' where q_id='"+qid.getText()+"'";
+                	  }else{
+                		  sql="update blanks set q_content='"+qcontent.getText()+"',q_answer='"
+                          		+answer.getText()+"' where q_id='"+qid.getText()+"'";
+                	  }
+                  }
+    		} else {
+    			alert.close();
+    		}
+    	}
+    	stmt1 = conn1.createStatement();
+		stmt1.executeUpdate(sql);
+		//stmt1.close();
+		//myDB1.closeMyConnection();// 关闭连接
+    }//
 
     @FXML
     void returnClick(ActionEvent event) {//返回题库表界面
@@ -138,21 +140,39 @@ public class ChangeQController {
 		oldStage.hide();
     }
 
-    public void setnameText(String name,int m,int n,String id) {
+    public void setnameText(String name,int m,int n,int l,String id,int qqid,String qqcontent,String qqA,
+    		String qqB,String qqC,String qqD,String qqanswer) {
 		Adname = name;
 		Aid=id;
 		p=m;
 		t=n;
+		w=l;
+		if(w==2){
+			qid.setText(String.valueOf(qqid));
+			qid.setDisable(true);
+    		qcontent.setText(qqcontent);
+    		QA.setText(qqA);
+    		QB.setText(qqB);
+    		QC.setText(qqC);
+    		QD.setText(qqD);
+    		answer.setText(qqanswer);
+		}
 		if(p==1){
-			QA.setDisable(false);
-			QB.setDisable(false);
-			QC.setDisable(false);
-			QD.setDisable(false);
+			if(t==1){
+				question.setText("单选题");
+			}else{
+				question.setText("多选题");
+			}
 		}else{
 			QA.setDisable(true);
 			QB.setDisable(true);
 			QC.setDisable(true);
 			QD.setDisable(true);
+			if(t==1){
+				question.setText("判断题");
+			}else{
+				question.setText("填空题");
+			}
 		}
 	}
 

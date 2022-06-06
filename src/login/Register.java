@@ -89,105 +89,123 @@ public class Register extends Application {
 		Connection conn = myDB.getMyConnection();
 		MyDBConnection myDB1 = new MyDBConnection(DBDriver, DBURL, DBUser, DBPass);
 		Connection conn1 = myDB1.getMyConnection();
+		MyDBConnection myDB2 = new MyDBConnection(DBDriver, DBURL, DBUser, DBPass);
+		Connection conn2 = myDB1.getMyConnection();
 
 
 		// 事件处理
 		register.setOnMouseClicked(e -> {
-			// 信息输入不完整
-			if (idInput.getText().equals("") || nameInput.getText().equals("") || telInput.getText().equals("")
-					|| (male.isSelected() == false && female.isSelected() == false)) {
-				Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-				alert.setTitle("信息填写不完整");
-				alert.setHeaderText("您的用户信息尚未填写完整！确定要返回登录界面吗？" + "\n" + "返回后您刚刚填写的信息不会保留");
-				Optional<ButtonType> result = alert.showAndWait();
-				if (result.get() == ButtonType.OK) {
-					alert.close();
-					Login loginStage = new Login();
-					try {
-						loginStage.start(new Stage());
-					} catch (Exception e1) {
-						// TODO 自动生成的 catch 块
-						e1.printStackTrace();
-					}
-					registerStage.hide();
-				} else {
-					alert.close();
-				}
-			}
-			// 信息输入完整
-			else {
-				//账号重复
+			if(idInput.getText().equals("") && nameInput.getText().equals("") && telInput.getText().equals("")
+					&& (male.isSelected() == false && female.isSelected() == false)){
+				Login loginStage = new Login();
 				try {
-					Statement stmt1 = conn1.createStatement();
-					String selectID = "select * from student where Sid="+idInput.getText();
-					ResultSet rset1;
-					rset1 = stmt1.executeQuery(selectID);
-
-
-			if(rset1.next()){
-				Alert warning = new Alert(AlertType.WARNING, "该账号已被注册，请修改账号信息后重新提交注册！");
-				warning.setTitle("账号重复");
-				warning.show();
-			}else{
-				// 两次密码输入不一致
-				if (!idInput.getText().equals("") && idInput.getText().length() <= 8
-						&& idInput.getText().matches("[\\da-zA-Z]+") && !nameInput.getText().equals("")
-						&& nameInput.getText().length() <= 12
-						&& (male.isSelected() == true || female.isSelected() == true)
-						&& !schoolInput.getText().equals("") && schoolInput.getText().length() <= 20
-						&& !telInput.getText().equals("") && telInput.getText().length() <= 15
-						&& !p1Input.getText().equals("") && p1Input.getText().length() <= 15
-						&& !p1Input.getText().equals(p2Input.getText()) && p1Input.getText().matches("[\\da-zA-Z]+")) {
-					Alert warning = new Alert(AlertType.WARNING, "两次输入密码不一致！");
-					warning.setTitle("密码错误");
-					warning.show();
-				}
-				// 信息填写格式正确
-				else if (!idInput.getText().equals("") && idInput.getText().length() <= 8
-						&& idInput.getText().matches("[\\da-zA-Z]+") && !nameInput.getText().equals("")
-						&& nameInput.getText().length() <= 12
-						&& (male.isSelected() == true || female.isSelected() == true)
-						&& !schoolInput.getText().equals("") && schoolInput.getText().length() <= 20
-						&& !telInput.getText().equals("") && telInput.getText().length() <= 15
-						&& !p1Input.getText().equals("") && p1Input.getText().length() <= 15
-						&& p1Input.getText().equals(p2Input.getText()) && p1Input.getText().matches("[\\da-zA-Z]+")) {
-					try {
-						Statement stmt = conn.createStatement();
-						String Sex = new String();
-						if (male.isSelected() == true) {
-							Sex = "M";
-						} else {
-							Sex = "F";
-						}
-						String sql = "insert into student(Sid,Sname,Ssex,Sphone,Sschool,Spassword,state) values('"
-								+ idInput.getText() + "','" + nameInput.getText() + "','" + Sex + "','"
-								+ telInput.getText() + "','" + schoolInput.getText() + "','" + p1Input.getText() + "','正常')";
-						stmt.executeUpdate(sql);
-						Alert warning = new Alert(AlertType.INFORMATION, "恭喜您注册成功！");
-						warning.setTitle("注册成功");
-						warning.show();
-						stmt.close();
-						myDB.closeMyConnection();// 关闭连接
-					} catch (SQLException e1) {
-						// TODO 自动生成的 catch 块
-						e1.printStackTrace();
-					}
-
-				}
-				// 信息填写格式有误
-				else {
-					Alert warning = new Alert(AlertType.WARNING, "注册信息填写格式有误，在填写时，请注意：" + "\n" + "账号密码均为字母或数字；" + "\n"
-							+ "账号长度不超过8位，密码长度不超过15位；" + "\n" + "电话长度不超过15位；");
-					warning.setTitle("注册信息填写格式有误！");
-					warning.show();
-				}
-			}
-				} catch (SQLException e2) {
+					loginStage.start(new Stage());
+					registerStage.hide();
+				} catch (Exception e1) {
 					// TODO 自动生成的 catch 块
-					e2.printStackTrace();
+					e1.printStackTrace();
 				}
-
 			}
+		else {
+			// 信息输入不完整
+						if (idInput.getText().equals("") || nameInput.getText().equals("") || telInput.getText().equals("")
+								|| (male.isSelected() == false && female.isSelected() == false)) {
+							Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+							alert.setTitle("信息填写不完整");
+							alert.setHeaderText("您的用户信息尚未填写完整！确定要返回登录界面吗？" + "\n" + "返回后您刚刚填写的信息不会保留");
+							Optional<ButtonType> result = alert.showAndWait();
+							if (result.get() == ButtonType.OK) {
+								alert.close();
+								Login loginStage = new Login();
+								try {
+									loginStage.start(new Stage());
+								} catch (Exception e1) {
+									// TODO 自动生成的 catch 块
+									e1.printStackTrace();
+								}
+								registerStage.hide();
+							} else {
+								alert.close();
+							}
+						}
+						// 信息输入完整
+						else {
+							//账号重复
+							try {
+								Statement stmt1 = conn1.createStatement();
+								String selectID = "select * from student where Sid="+idInput.getText();
+								ResultSet rset1;
+								rset1 = stmt1.executeQuery(selectID);
+
+
+						if(rset1.next()){
+							Alert warning = new Alert(AlertType.WARNING, "该账号已被注册，请修改账号信息后重新提交注册！");
+							warning.setTitle("账号重复");
+							warning.show();
+						}else{
+							// 两次密码输入不一致
+							if (!idInput.getText().equals("") && idInput.getText().length() <= 8
+									&& idInput.getText().matches("[\\da-zA-Z]+") && !nameInput.getText().equals("")
+									&& nameInput.getText().length() <= 12
+									&& (male.isSelected() == true || female.isSelected() == true)
+									&& !schoolInput.getText().equals("") && schoolInput.getText().length() <= 20
+									&& !telInput.getText().equals("") && telInput.getText().length() <= 15
+									&& !p1Input.getText().equals("") && p1Input.getText().length() <= 15
+									&& !p1Input.getText().equals(p2Input.getText()) && p1Input.getText().matches("[\\da-zA-Z]+")) {
+								Alert warning = new Alert(AlertType.WARNING, "两次输入密码不一致！");
+								warning.setTitle("密码错误");
+								warning.show();
+							}
+							// 信息填写格式正确
+							else if (!idInput.getText().equals("") && idInput.getText().length() <= 8
+									&& idInput.getText().matches("[\\da-zA-Z]+") && !nameInput.getText().equals("")
+									&& nameInput.getText().length() <= 12
+									&& (male.isSelected() == true || female.isSelected() == true)
+									&& !schoolInput.getText().equals("") && schoolInput.getText().length() <= 20
+									&& !telInput.getText().equals("") && telInput.getText().length() <= 15
+									&& !p1Input.getText().equals("") && p1Input.getText().length() <= 15
+									&& p1Input.getText().equals(p2Input.getText()) && p1Input.getText().matches("[\\da-zA-Z]+")) {
+								try {
+									Statement stmt = conn.createStatement();
+									Statement stmt2 = conn2.createStatement();
+									String Sex = new String();
+									if (male.isSelected() == true) {
+										Sex = "M";
+									} else {
+										Sex = "F";
+									}
+									String sql = "insert into student(Sid,Sname,Ssex,Sphone,Sschool,Spassword,state) values('"
+											+ idInput.getText() + "','" + nameInput.getText() + "','" + Sex + "','"
+											+ telInput.getText() + "','" + schoolInput.getText() + "','" + p1Input.getText() + "','正常')";
+									stmt.executeUpdate(sql);
+									Alert warning = new Alert(AlertType.INFORMATION, "恭喜您注册成功！");
+									warning.setTitle("注册成功");
+									warning.show();
+									stmt.close();
+									stmt2.close();
+									myDB.closeMyConnection();
+									myDB2.closeMyConnection();// 关闭连接
+								} catch (SQLException e1) {
+									// TODO 自动生成的 catch 块
+									e1.printStackTrace();
+								}
+
+							}
+							// 信息填写格式有误
+							else {
+								Alert warning = new Alert(AlertType.WARNING, "注册信息填写格式有误，在填写时，请注意：" + "\n" + "账号密码均为字母或数字；" + "\n"
+										+ "账号长度不超过8位，密码长度不超过15位；" + "\n" + "电话长度不超过15位；");
+								warning.setTitle("注册信息填写格式有误！");
+								warning.show();
+							}
+						}
+							} catch (SQLException e2) {
+								// TODO 自动生成的 catch 块
+								e2.printStackTrace();
+							}
+
+						}
+		}
 
 		});
 		root.getStyleClass().add("root");

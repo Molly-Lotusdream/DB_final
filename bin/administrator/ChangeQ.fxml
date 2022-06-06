@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -14,22 +15,17 @@
             <Image url="@../img/ChangeQ.png" />
          </image>
       </ImageView>
-      <Button fx:id="deleteCK" layoutX="703.0" layoutY="111.0" mnemonicParsing="false" onAction="#deleteClick" opacity="0.0" prefHeight="48.0" prefWidth="83.0" text="删除">
+      <Button fx:id="checkCK" layoutX="262.0" layoutY="521.0" mnemonicParsing="false" onAction="#checkClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="添加">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="addCK" layoutX="703.0" layoutY="217.0" mnemonicParsing="false" onAction="#addClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="添加">
+      <Button fx:id="returnOK" layoutX="454.0" layoutY="521.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="返回">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="returnOK" layoutX="703.0" layoutY="310.0" mnemonicParsing="false" onAction="#returnClick" opacity="0.0" prefHeight="55.0" prefWidth="83.0" text="返回">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <VBox layoutX="184.0" layoutY="39.0" prefHeight="436.0" prefWidth="496.0" spacing="15.0">
+      <VBox layoutX="222.0" layoutY="69.0" prefHeight="436.0" prefWidth="496.0" spacing="15.0">
          <children>
             <TextField fx:id="qid" prefHeight="61.0" prefWidth="496.0" />
             <TextField fx:id="qcontent" prefHeight="55.0" prefWidth="497.0" />
@@ -41,5 +37,9 @@
          </children>
       </VBox>
       <Label fx:id="Aname" disable="true" layoutX="40.0" layoutY="-50.0" text="name" />
+      <Label fx:id="question" layoutX="232.0" layoutY="18.0" prefHeight="40.0" prefWidth="158.0" text="question" textFill="#475989">
+         <font>
+            <Font size="26.0" />
+         </font></Label>
    </children>
 </Pane>

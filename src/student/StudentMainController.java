@@ -153,6 +153,12 @@ public class StudentMainController {
 //进入正式考试
 	@FXML
 	void Test_Click(ActionEvent event) throws InterruptedException, SQLException {
+	if(Test.isDisable()==true){
+		Alert warning = new Alert(AlertType.WARNING, "只有一次作答机会" + "交卷后不可再进入考试！");
+		warning.setTitle("考试暂未发布！");
+		warning.show();
+	}
+	else{
 		MyDBConnection myDB3 = new MyDBConnection(DBDriver, DBURL, DBUser, DBPass);
 		Connection conn3 = myDB3.getMyConnection();
 		Statement stmt3;
@@ -181,12 +187,19 @@ public class StudentMainController {
 			}
 
 		}
-
-
-
-;
 	}
-	//成绩显示
+	}
+	public Button getTest() {
+		return Test;
+	}
+
+		public void setTest(boolean bool) {
+			Test.setDisable(bool);
+
+
+	}
+
+		//成绩显示
 		public void setGrade(String id) throws SQLException {
 			Connection conn1 = myDB.getMyConnection();
 			String sql1 = "select Sgrade from student where Sid="+Sid;

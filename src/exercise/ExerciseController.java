@@ -358,7 +358,7 @@ private String sex;
 			System.out.println("SQLException：" + sqle);
 		  }
     	Stage stage = new Stage();
-		Scene scene = new Scene(new StudentMain(stage,Sname,Sid,sex));
+		Scene scene = new Scene(new StudentMain(stage,Sname,Sid,sex,false));
 		stage.setScene(scene);
 		stage.setTitle("学生主界面");
 		stage.show();
@@ -405,6 +405,7 @@ private String sex;
 			Statement stmt1=conn.createStatement();
 			ResultSet rset1=stmt1.executeQuery(sql1);
 			if (rset1.next()) {
+
 				qusetion.setText(rset1.getString("q_content"));
 				numbers.setText(rset1.getString("q_id"));
 				selectA.setText("A:"+rset1.getString("q_A"));

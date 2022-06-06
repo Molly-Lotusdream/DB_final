@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class StudentMain extends GridPane{
 
-  public StudentMain(Stage stage,String name,String ID,String sex) throws SQLException {
+  public StudentMain(Stage stage,String name,String ID,String sex,boolean bool) throws SQLException {
     try {
 
       FXMLLoader fxmlloader= new FXMLLoader(getClass().getResource("studentMain.fxml"));
@@ -20,6 +20,7 @@ public class StudentMain extends GridPane{
       ((StudentMainController)fxmlloader.getController()).setView(sex);
       ((StudentMainController)fxmlloader.getController()).setOldStage(stage);
       ((StudentMainController)fxmlloader.getController()).setGrade(ID);
+      ((StudentMainController)fxmlloader.getController()).setTest(bool);
 
 
     } catch (IOException e) {

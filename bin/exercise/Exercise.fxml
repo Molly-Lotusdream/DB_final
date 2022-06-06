@@ -61,7 +61,7 @@
             </Label>
             <Label fx:id="answer" layoutX="110.0" layoutY="241.0" prefHeight="36.0" prefWidth="302.0" text="参考答案：" textFill="#475989" underline="true" visible="false" />
             <Label fx:id="label_A" layoutX="87.0" layoutY="152.0" text="输入答案：" textFill="#475989" visible="false" />
-            <Button fx:id="saved" layoutX="477.0" layoutY="183.0" mnemonicParsing="false" onAction="#SaveClick" prefHeight="36.0" prefWidth="75.0" style="-fx-background-color: #475989;" text="保存" textFill="WHITE">
+            <Button fx:id="saved" layoutX="477.0" layoutY="183.0" mnemonicParsing="false" onAction="#SaveClick" prefHeight="36.0" prefWidth="75.0" style="-fx-background-color: #475989;" text="检查" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

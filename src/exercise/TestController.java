@@ -27,14 +27,14 @@ import student.StudentMain;
 
 public class TestController {
 	private Timeline animation;
-    private String S ;
-    private String S2;
-    private int tmp = 0;
-    private int tmp2 = 30;
-    @FXML
-    private Label second;
-    @FXML
-    private Label minute;
+	private String S;
+	private String S2;
+	private int tmp = 0;
+	private int tmp2 = 30;
+	@FXML
+	private Label second;
+	@FXML
+	private Label minute;
 
 	private String sex;
 
@@ -47,12 +47,20 @@ public class TestController {
 	private String Sid;
 	private String Sname;
 	private int IfFinalText;
+	// 题目序号
 	private int[] QuestionsNo = new int[25];
+	// String 答案
 	private String answer;
+
 	private int Now_number = 1;
+	// 记录每道题得分
 	private int[] Q_Grade = new int[25];
+	// 二维数组存放单选、多选、判断的答案
 	private int[][] MyAns = new int[20][4];
+	// 字符串数组存放填空题答案
 	private String[] MyBlanksAns = new String[5];
+	// 四个整数记录题库中对应类型题目的数量
+//	private int row1 = 1, row2 = 1, row3 = 1, row4 = 1;
 
 	// a-1000,b-0100,c-0010,d-0001
 
@@ -377,16 +385,17 @@ public class TestController {
 		}
 		// System.out.println(grade);
 
-		Stage stage = new Stage();
-		Scene scene = new Scene(new StudentMain(stage, Sname, Sid, sex));
-		stage.setScene(scene);
-		stage.setTitle("学生主界面");
-		stage.show();
-		oldstage.hide();
-
 		// 模拟考试
+//		首先获取成绩若符合条件将成绩写入表中，然后更新，select表中数据进行set
 		if (IfFinalText == 0) {
 			try {
+				Stage stage = new Stage();
+				StudentMain stumain = new StudentMain(stage, Sname, Sid, sex,false);
+				Scene scene = new Scene(stumain);
+				stage.setScene(scene);
+				stage.setTitle("学生主界面");
+				stage.show();
+				oldstage.hide();
 				Statement stmt = conn.createStatement();
 				int maxgrade;
 				Date date = new Date();
@@ -432,6 +441,13 @@ public class TestController {
 		// 正式考试
 		else {
 			try {
+				Stage stage = new Stage();
+				StudentMain stumain = new StudentMain(stage, Sname, Sid, sex,true);
+				Scene scene = new Scene(stumain);
+				stage.setScene(scene);
+				stage.setTitle("学生主界面");
+				stage.show();
+				oldstage.hide();
 				String sql = "update student set Sgrade='" + grade + "'where Sid='" + Sid + "'";
 				Statement stmt = conn.createStatement();
 				stmt.executeUpdate(sql);
@@ -588,28 +604,35 @@ public class TestController {
 				Statement stmt1 = conn.createStatement();
 				ResultSet rset1 = stmt1.executeQuery(sql1);
 				if (rset1.next()) {
-					question.setText("(第" + number + "题)" + rset1.getString("q_content"));
+//					(第" + number + "题) +
+					question.setText(rset1.getString("q_content"));
 					selectA.setText("A:" + rset1.getString("q_A"));
 					selectB.setText("B:" + rset1.getString("q_B"));
 					selectC.setText("C:" + rset1.getString("q_C"));
 					selectD.setText("D:" + rset1.getString("q_D"));
 					answer = rset1.getString("q_answer");
+//					rset1.last();
+//					row1=rset1.getRow();
 				}
 				stmt1.close();
 				myDB.closeMyConnection();// 关闭连接
 			}
 			// 多选
 			else if (flag == 2) {
+
 				String sql1 = "select q_id,q_content,q_A,q_B,q_C,q_D,q_answer from mchoices where q_id=" + No;
 				Statement stmt1 = conn.createStatement();
-				ResultSet rset1 = stmt1.executeQuery(sql1);
-				if (rset1.next()) {
-					question.setText("(第" + number + "题)" + rset1.getString("q_content"));
-					MselectA.setText("A:" + rset1.getString("q_A"));
-					MselectB.setText("B:" + rset1.getString("q_B"));
-					MselectC.setText("C:" + rset1.getString("q_C"));
-					MselectD.setText("D:" + rset1.getString("q_D"));
-					answer = rset1.getString("q_answer");
+				ResultSet rset2 = stmt1.executeQuery(sql1);
+				if (rset2.next()) {
+//					"(第" + number + "题)" +
+					question.setText( rset2.getString("q_content"));
+					MselectA.setText("A:" + rset2.getString("q_A"));
+					MselectB.setText("B:" + rset2.getString("q_B"));
+					MselectC.setText("C:" + rset2.getString("q_C"));
+					MselectD.setText("D:" + rset2.getString("q_D"));
+					answer = rset2.getString("q_answer");
+//					rset2.last();
+//					row2=rset2.getRow();
 				}
 				stmt1.close();
 				myDB.closeMyConnection();// 关闭连接
@@ -618,10 +641,13 @@ public class TestController {
 			else if (flag == 4) {
 				String sql1 = "select q_id,q_content,q_answer from blanks where q_id=" + No;
 				Statement stmt1 = conn.createStatement();
-				ResultSet rset1 = stmt1.executeQuery(sql1);
-				if (rset1.next()) {
-					question.setText("(第" + number + "题)" + rset1.getString("q_content"));
-					answer = rset1.getString("q_answer");
+				ResultSet rset3 = stmt1.executeQuery(sql1);
+				if (rset3.next()) {
+//					"(第" + number + "题)" +
+					question.setText( rset3.getString("q_content"));
+					answer = rset3.getString("q_answer");
+//					rset3.last();
+//					row3=rset3.getRow();
 				}
 				stmt1.close();
 				myDB.closeMyConnection();// 关闭连接
@@ -630,10 +656,13 @@ public class TestController {
 			else if (flag == 3) {
 				String sql1 = "select q_id,q_content,q_answer from judgment where q_id=" + No;
 				Statement stmt1 = conn.createStatement();
-				ResultSet rset1 = stmt1.executeQuery(sql1);
-				if (rset1.next()) {
-					question.setText("(第" + number + "题)" + rset1.getString("q_content"));
-					answer = rset1.getString("q_answer");
+				ResultSet rset4 = stmt1.executeQuery(sql1);
+				if (rset4.next()) {
+//					"(第" + number + "题)" +
+					question.setText( rset4.getString("q_content"));
+					answer = rset4.getString("q_answer");
+//					rset4.last();
+//					row4=rset4.getRow();
 				}
 				stmt1.close();
 				myDB.closeMyConnection();// 关闭连接
@@ -774,7 +803,7 @@ public class TestController {
 		// 随机抽题号
 		for (i = 0; i < 10; i++) {
 			QuestionsNo[i] = 0;
-			number = random.nextInt(10) + 1;
+			number = random.nextInt(20) + 1;
 			for (j = 0; j < 10; j++) {
 				if (QuestionsNo[j] == number)
 					break;
@@ -785,7 +814,7 @@ public class TestController {
 				i--;
 		}
 		for (i = 10; i < 14; i++) {
-			number = random.nextInt(10) + 1;
+			number = random.nextInt(15) + 1;
 			for (j = 10; j < 14; j++) {
 				if (QuestionsNo[j] == number)
 					break;
@@ -819,9 +848,10 @@ public class TestController {
 		}
 		searchQusetion(1, QuestionsNo[0], 1);
 	}
-	//倒计时
-    public void Clock() {
-        animation = new Timeline(new KeyFrame(Duration.millis(1000), e -> {
+
+	// 倒计时
+	public void Clock() {
+		animation = new Timeline(new KeyFrame(Duration.millis(1000), e -> {
 			try {
 				timelabel();
 			} catch (SQLException e1) {
@@ -829,66 +859,67 @@ public class TestController {
 				e1.printStackTrace();
 			}
 		}));
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.play();
-    }
-
-    public void timelabel() throws SQLException {
-      if(tmp==0&&tmp2==0){
-        animation.stop();
-
-        MyDBConnection myDB = new MyDBConnection(DBDriver, DBURL, DBUser, DBPass);
-        Connection conn = myDB.getMyConnection();
-        int grade=0;
-        for(int i=0;i<25;i++) {
-            grade+=Q_Grade[i];
-          }
-
-          Stage stage = new Stage();
-        Scene scene = new Scene(new StudentMain(stage,Sname,Sid,sex));
-        stage.setScene(scene);
-        stage.setTitle("学生主界面");
-        stage.show();
-          oldstage.hide();
-
-          try {
-          String sql = "update student set Sgrade='"+grade+"'where Sid='"+Sid+"'";
-        Statement stmt=conn.createStatement();
-        stmt.executeUpdate(sql);
-
-        Alert ending = new Alert(AlertType.INFORMATION, "考试已经结束！你的成绩为："+grade+"分！");
-        ending.setTitle("考试结束");
-        ending.show();
-        stmt.close();
-        myDB.closeMyConnection();//关闭连接
-        }catch(Exception e){
-          e.printStackTrace();
-        }
-      }
-      second.setText("00");
-      if(tmp==0){
-        second.setText("00");
-        minute.setText("30 :");
-        tmp=59;
-        S = tmp + "";
-            second.setText(S);
-            tmp2--;
-            if(tmp2<10){
-              S2="0"+tmp2+" :";
-              minute.setText(S2);
-            }else{
-              S2=tmp2+" :";
-              minute.setText(S2);
-            }
-      }else{
-        tmp--;
-        if(tmp<10){
-          S="0"+tmp+"";
-          second.setText(S);
-        }else{
-          S = tmp + "";
-          second.setText(S);
-        }
-      }
-    }
+		animation.setCycleCount(Timeline.INDEFINITE);
+		animation.play();
 	}
+
+	public void timelabel() throws SQLException {
+		if (tmp == 0 && tmp2 == 0) {
+			animation.stop();
+
+			MyDBConnection myDB = new MyDBConnection(DBDriver, DBURL, DBUser, DBPass);
+			Connection conn = myDB.getMyConnection();
+			int grade = 0;
+			for (int i = 0; i < 25; i++) {
+				grade += Q_Grade[i];
+			}
+
+			Stage stage = new Stage();
+			Scene scene = new Scene(new StudentMain(stage, Sname, Sid, sex,true));
+			stage.setScene(scene);
+			stage.setTitle("学生主界面");
+			stage.show();
+			oldstage.hide();
+
+			try {
+				String sql = "update student set Sgrade='" + grade + "'where Sid='" + Sid + "'";
+				Statement stmt = conn.createStatement();
+				stmt.executeUpdate(sql);
+
+				Alert ending = new Alert(AlertType.INFORMATION, "考试已经结束！你的成绩为：" + grade + "分！");
+				ending.setTitle("考试结束");
+				ending.show();
+				stmt.close();
+				myDB.closeMyConnection();// 关闭连接
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		second.setText("00");
+		if (tmp == 0) {
+			second.setText("00");
+			minute.setText("30 :");
+			tmp = 59;
+			S = tmp + "";
+			second.setText(S);
+			tmp2--;
+			if (tmp2 < 10) {
+				S2 = "0" + tmp2 + " :";
+				minute.setText(S2);
+			} else {
+				S2 = tmp2 + " :";
+				minute.setText(S2);
+			}
+		} else {
+			tmp--;
+			if (tmp < 10) {
+				S = "0" + tmp + "";
+				second.setText(S);
+			} else {
+				S = tmp + "";
+				second.setText(S);
+			}
+		}
+	}
+}

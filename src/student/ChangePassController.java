@@ -58,7 +58,7 @@ private String Ssex=null;
     @FXML
     void returnClick(ActionEvent event) throws SQLException {
     	Stage adstage = new Stage();
-		StudentMain admenu = new StudentMain(adstage,name.getText(),Sid,Ssex);
+		StudentMain admenu = new StudentMain(adstage,name.getText(),Sid,Ssex,false);
 		Scene adScene = new Scene(admenu);
 		adstage.setScene(adScene);
 		adstage.setTitle("学生主界面");

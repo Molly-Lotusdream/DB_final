@@ -23,7 +23,7 @@
          </cursor></Button>
       <ScrollPane fx:id="pane1" layoutX="20.0" layoutY="97.0" prefHeight="403.0" prefWidth="744.0">
          <content>
-            <TableView fx:id="selectQ" prefHeight="537.0" prefWidth="1309.0">
+            <TableView fx:id="selectQ" prefHeight="416.0" prefWidth="1309.0">
               <columns>
                 <TableColumn fx:id="qid1" prefWidth="61.0" text="题号" />
                 <TableColumn fx:id="qcontent1" prefWidth="471.0" text="题目" />
@@ -36,11 +36,6 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button fx:id="changeCK" layoutX="301.0" layoutY="520.0" mnemonicParsing="false" onAction="#changeClick" opacity="0.0" prefHeight="54.0" prefWidth="198.0" text="修改题目">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <HBox layoutX="35.0" layoutY="7.0" prefHeight="72.0" prefWidth="414.0" spacing="11.0">
          <children>
             <Button fx:id="selectionCK" mnemonicParsing="false" onAction="#selectionClick" prefHeight="59.0" prefWidth="127.0" text="单选题" textFill="#475989">
@@ -76,5 +71,20 @@
             </TableView>
          </content>
       </ScrollPane>
+      <Button fx:id="deleteCK" layoutX="349.0" layoutY="520.0" mnemonicParsing="false" onAction="#deleteClick" opacity="0.0" prefHeight="54.0" prefWidth="102.0" text="删除题目">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="addCK" layoutX="158.0" layoutY="520.0" mnemonicParsing="false" onAction="#addClick" opacity="0.0" prefHeight="54.0" prefWidth="102.0" text="添加题目">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeCK" layoutX="541.0" layoutY="520.0" mnemonicParsing="false" onAction="#changeClick" opacity="0.0" prefHeight="54.0" prefWidth="102.0" text="修改题目">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>

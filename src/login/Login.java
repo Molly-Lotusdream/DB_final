@@ -103,109 +103,112 @@ public class Login extends Application {
 				warning.setTitle("账号密码未输入");
 				warning.show();
 			}
-			// 输入格式符合要求
-			if (userInput.getText().matches("[\\da-zA-Z]+") && userInput.getText().length() < 20
-					&& passwordInput.getText().matches("[\\da-zA-Z]+") && passwordInput.getText().length() < 20) {
-				// 进行查询对比判断是否可以登录（管理员界面）
-				if (ad.isSelected() == true) {
-					String sql = "select Apassword,Aname from administrator where Aid=" + userInput.getText();
-					ResultSet rset2;
+			else {
 
-					try {
-						Statement stmt2;
-						stmt2 = conn.createStatement();
-						rset2 = stmt2.executeQuery(sql);
-						if (rset2.next() && rset2.getString("Apassword").equals(passwordInput.getText())) {
-							// 允许管理员登录至管理员界面
-							String Aname = rset2.getString("Aname");
-							Stage Adstage = new Stage();
-							Admmenu admmenu = new Admmenu(Adstage, Aname, userInput.getText());
-							Scene scene = new Scene(admmenu);
-							Adstage.setScene(scene);
-							Adstage.setTitle("管理员界面");
-							Adstage.show();
-							loginStage.hide();
-							// 登录成功后再关闭查询与数据库连接
-							stmt2.close();
-							myDB2.closeMyConnection();
-						} else {
-							Alert warning = new Alert(AlertType.WARNING, "账号密码输入错误或未注册！" + "\n" + "请检查您的账号密码是否输入有误！");
-							warning.setTitle("账号密码输入错误");
-							warning.show();
-						}
-					} catch (SQLException e1) {
+				// 输入格式符合要求
+				if (userInput.getText().matches("[\\da-zA-Z]+") && userInput.getText().length() < 20
+						&& passwordInput.getText().matches("[\\da-zA-Z]+") && passwordInput.getText().length() < 20) {
+					// 进行查询对比判断是否可以登录（管理员界面）
+					if (ad.isSelected() == true) {
+						String sql = "select Apassword,Aname from administrator where Aid=" + userInput.getText();
+						ResultSet rset2;
 
-						e1.printStackTrace();
-					} catch (Throwable e1) {
-
-						e1.printStackTrace();
-					}
-
-				}
-				// 进行查询对比判断是否可以登录（学生界面）
-				if (stu.isSelected() == true) {
-					String sql = "select * from student where Sid=" + userInput.getText();
-					ResultSet rset;
-					try {
-						Statement stmt;
-						stmt = conn.createStatement();
-						rset = stmt.executeQuery(sql);
-						// 查询到数据
-						if (rset.next()) {
-							// 信息一致，允许登录
-							if (rset.getString("Spassword").equals(passwordInput.getText())
-									&& rset.getString("state").equals("正常")) {
-								Stage stage = new Stage();
-								Scene scene = new Scene(new StudentMain(stage, rset.getString("Sname"),
-										userInput.getText(), rset.getString("Ssex")));
-								stage.setScene(scene);
-								stage.setTitle("学生主界面");
-								stage.show();
+						try {
+							Statement stmt2;
+							stmt2 = conn.createStatement();
+							rset2 = stmt2.executeQuery(sql);
+							if (rset2.next() && rset2.getString("Apassword").equals(passwordInput.getText())) {
+								// 允许管理员登录至管理员界面
+								String Aname = rset2.getString("Aname");
+								Stage Adstage = new Stage();
+								Admmenu admmenu = new Admmenu(Adstage, Aname, userInput.getText());
+								Scene scene = new Scene(admmenu);
+								Adstage.setScene(scene);
+								Adstage.setTitle("管理员界面");
+								Adstage.show();
 								loginStage.hide();
-								// stulogin.setName(stulogin.getName(),
-								// rset.getString("Sname"));
-								// stulogin.setView(stulogin.getView(),
-								// rset.getString("Ssex"));
-								// stulogin.start(stustage);
 								// 登录成功后再关闭查询与数据库连接
-								stmt.close();
-								myDB.closeMyConnection();
-							}
-							// 密码正确，状态异常
-							else if (rset.getString("Spassword").equals(passwordInput.getText())
-									&& !rset.getString("state").equals("正常")) {
-								Alert warning = new Alert(AlertType.WARNING, "账号状态异常，请联系管理员");
-								warning.setTitle("账号状态异常");
+								stmt2.close();
+								myDB2.closeMyConnection();
+							} else {
+								Alert warning = new Alert(AlertType.WARNING, "账号密码输入错误或未注册！" + "\n" + "请检查您的账号密码是否输入有误！");
+								warning.setTitle("账号密码输入错误");
 								warning.show();
 							}
-							// 状态正常，密码错误
-							else if (!rset.getString("Spassword").equals(passwordInput.getText())
-									&& rset.getString("state").equals("正常")) {
-								Alert warning = new Alert(AlertType.WARNING, "密码输入有误，请重新输入");
-								warning.setTitle("密码错误");
-								warning.show();
-							}
+						} catch (SQLException e1) {
 
+							e1.printStackTrace();
+						} catch (Throwable e1) {
+
+							e1.printStackTrace();
 						}
-						// 未查询到数据
-						else {
-							Alert warning = new Alert(AlertType.WARNING, "请检查账号信息是否输入正确，若未注册，请至注册界面进行注册或联系管理员添加！");
-							warning.setTitle("账号信息错误");
-							warning.show();
-						}
-					} catch (SQLException e1) {
 
-						e1.printStackTrace();
-					} catch (Throwable e1) {
-
-						e1.printStackTrace();
 					}
+					// 进行查询对比判断是否可以登录（学生界面）
+					if (stu.isSelected() == true) {
+						String sql = "select * from student where Sid=" + userInput.getText();
+						ResultSet rset;
+						try {
+							Statement stmt;
+							stmt = conn.createStatement();
+							rset = stmt.executeQuery(sql);
+							// 查询到数据
+							if (rset.next()) {
+								// 信息一致，允许登录
+								if (rset.getString("Spassword").equals(passwordInput.getText())
+										&& rset.getString("state").equals("正常")) {
+									Stage stage = new Stage();
+									Scene scene = new Scene(new StudentMain(stage, rset.getString("Sname"),
+											userInput.getText(), rset.getString("Ssex"),false));
+									stage.setScene(scene);
+									stage.setTitle("学生主界面");
+									stage.show();
+									loginStage.hide();
+									// stulogin.setName(stulogin.getName(),
+									// rset.getString("Sname"));
+									// stulogin.setView(stulogin.getView(),
+									// rset.getString("Ssex"));
+									// stulogin.start(stustage);
+									// 登录成功后再关闭查询与数据库连接
+									stmt.close();
+									myDB.closeMyConnection();
+								}
+								// 密码正确，状态异常
+								else if (rset.getString("Spassword").equals(passwordInput.getText())
+										&& !rset.getString("state").equals("正常")) {
+									Alert warning = new Alert(AlertType.WARNING, "账号状态异常，请联系管理员");
+									warning.setTitle("账号状态异常");
+									warning.show();
+								}
+								// 状态正常，密码错误
+								else if (!rset.getString("Spassword").equals(passwordInput.getText())
+										&& rset.getString("state").equals("正常")) {
+									Alert warning = new Alert(AlertType.WARNING, "密码输入有误，请重新输入");
+									warning.setTitle("密码错误");
+									warning.show();
+								}
 
+							}
+							// 未查询到数据
+							else {
+								Alert warning = new Alert(AlertType.WARNING, "请检查账号信息是否输入正确，若未注册，"+"\n"+"请至注册界面进行注册或联系管理员添加！");
+								warning.setTitle("账号信息错误");
+								warning.show();
+							}
+						} catch (SQLException e1) {
+
+							e1.printStackTrace();
+						} catch (Throwable e1) {
+
+							e1.printStackTrace();
+						}
+
+					}
+				} else {
+					Alert warning = new Alert(AlertType.WARNING, "账号与密码必须是字母或数字且长度小于20！");
+					warning.setTitle("格式输入错误");
+					warning.show();
 				}
-			} else {
-				Alert warning = new Alert(AlertType.WARNING, "账号与密码必须是字母或数字且长度小于20！");
-				warning.setTitle("格式输入错误");
-				warning.show();
 			}
 
 		});
